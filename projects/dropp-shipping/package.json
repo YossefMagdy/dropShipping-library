@@ -1,0 +1,17 @@
+{
+  "name": "dropp-shipping",
+  "version": "0.0.1",
+
+  "peerDependencies": {
+    "@angular/common": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@ng-select/ng-select": "^13.4.1",
+    "bootstrap": "^5.3.3",
+    "primeng": "^17.18.2",
+    "tslib": "^2.3.0"
+  },
+  "dependencies": {
+
+  },
+  "sideEffects": false
+}

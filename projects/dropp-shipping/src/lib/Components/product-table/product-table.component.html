@@ -1,0 +1,50 @@
+<p-table    [value]="data">
+    <ng-template pTemplate="header" >
+      <tr>
+        @for (key of colData; track $index) {
+            <th  class="text-center bg-transparent" >{{key.header}} </th>
+        }   
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body"  let-rowData >
+      
+            <!-- @for (record of gridData; track $index) { -->
+                <tr class="border-bottom ">
+                    @for (key of colData; track $index) {
+                       @if (key.key==='productInfo') {
+                        <td class="text-center">
+                            <div class="m-auto" style="width: 300px;">
+                                <div class="d-flex justify-content-between">
+                                    <div class="productImg mx-2">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvIaqtmQDaQkQS7KJN_M6TVCRjvaWJ8qJqw&s  " alt="">
+                                    </div>
+                                    <div class="text-end flex-grow-1">
+                                        <h5>{{rowData[key.field].name}}</h5>
+                                        <span>{{rowData[key.field].category}}التصنيف</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>  
+                       }
+                        @else if (key.key==='JustArray') {
+                            <td class="text-center">
+                                @for (item of rowData[key.field]; track item;let i=$index) {
+                                    <span class="bg-dark-subtle p-1 rounded-1 mx-1">{{item}}</span>
+                                    <span *ngIf="rowData[key.field][i+1]">-</span>
+                                }
+                            </td>
+                        }
+                       @else {
+
+                           <td class="text-center">{{ rowData[key.field] }}</td>  
+                       }
+                }
+                
+                    @if (modelButton) {
+                        <td><button class="modelButton" (click)="modelData(rowData)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M8 256a56 56 0 1 1 112 0A56 56 0 1 1 8 256zm160 0a56 56 0 1 1 112 0 56 56 0 1 1 -112 0zm216-56a56 56 0 1 1 0 112 56 56 0 1 1 0-112z" fill="#fff"/></svg></button></td>
+                    }
+                </tr>
+        
+            <!-- } -->
+    </ng-template>
+  </p-table>

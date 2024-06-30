@@ -1,0 +1,29 @@
+<div dir="rtl" class="custom-container">
+    <app-site-select-box></app-site-select-box>
+
+    <div class="all-product">
+        <span>جميع المنتجات</span>
+    </div>
+
+    <app-filtering></app-filtering>
+
+
+    <div class="H-spacer"></div>
+
+    <!------------------ table ---------------------------->
+
+    <app-table [modelButton]="true" [data]="products" [gridData]="gridData" [colData]="colData" (productEdit)="openModel($event)"></app-table>
+
+    <div class="mt-3">
+    <p-paginator 
+    [first]="first"
+    [rows]="rows" 
+    [totalRecords]="4" 
+    [rowsPerPageOptions]="[10, 20, 30]" />
+    </div>
+
+    
+    <!------------------ model ---------------------------->
+<app-model [visible]="showModel" [items]="Tabitems" (modelClose)="showModel=false"> </app-model>
+
+</div>

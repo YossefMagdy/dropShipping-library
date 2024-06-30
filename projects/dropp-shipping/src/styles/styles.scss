@@ -1,0 +1,72 @@
+
+
+.my-select{
+    height: 29px;
+    margin: 0 5px;
+}
+
+.my-select-md {
+    width: 214px;
+}
+.my-select-s {
+    width: 119px;
+}
+.my-select-xs {
+    width: 90px;
+}
+.ng-select-toolbar{
+    width: 60px;
+    margin: 0;
+    .ng-select-container{
+        background-color: transparent !important;
+        border: none;
+        .ng-clear-wrapper {
+            display: none;
+        }
+    }
+}
+
+.H-spacer{
+    height: 4px;
+    width: 95%;
+    background-color: #AAAAAA;
+    margin: 1.5em auto;
+    border-radius: 4px;
+}
+
+
+.p-dropdown-items {
+    padding: 0 !important;
+}
+.p-dialog-title{
+    display: block;
+    margin: auto;
+}
+.p-tabmenu-nav {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.p-ripple.p-element.p-menuitem-link{
+    text-decoration: none;
+    .p-menuitem-text{
+        color: black;
+    }
+
+}
+
+.p-datatable-wrapper::-webkit-scrollbar {
+    display: block;
+    height: 4px;   
+  }
+  
+  
+  .p-datatable-wrapper::-webkit-scrollbar-track {
+    background-color: #919191;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .p-datatable-wrapper::-webkit-scrollbar-thumb {
+    background: #0E233D !important;
+    border-radius: 10px;
+  }
