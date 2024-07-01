@@ -108,6 +108,7 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "project": "projects/dropp-shipping/ng-package.json"
+
           },
           "configurations": {
             "production": {

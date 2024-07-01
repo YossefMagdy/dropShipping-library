@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [NgSelectModule,FormsModule],
   templateUrl: './site-select-box.component.html',
-  styleUrls: ['./site-select-box.component.scss','../../../styles/styles.scss']
+  styleUrls: ['./site-select-box.component.scss','../../styles.scss']
 })
 export class SiteSelectBoxComponent {
   selectedCar!: number;

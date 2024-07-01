@@ -8,7 +8,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
   standalone: true,
   imports: [NgSelectModule,FormsModule,NgIf],
   templateUrl: './filtering.component.html',
-  styleUrls: ['./filtering.component.scss','../../../styles/styles.scss']
+  styleUrls: ['./filtering.component.scss','../../styles.scss']
 })
 export class FilteringComponent {
   addMoreFilter:boolean=false

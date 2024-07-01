@@ -3,7 +3,10 @@
   "dest": "../../dist/dropp-shipping",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "src/lib/styles.scss"
+  ]
 
 
 }

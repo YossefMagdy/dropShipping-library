@@ -14,7 +14,7 @@ import { ModelComponent } from './Components/model/model.component';
   templateUrl: './dropp-shipping.component.html',
   styleUrls: [
     './dropp-shipping.component.scss',
-    '../styles/styles.scss'
+    './styles.scss'
   ]
 })
 export class DroppShippingComponent implements OnInit {
