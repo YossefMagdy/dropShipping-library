@@ -31,17 +31,22 @@
 }
 .text-editor{
     position: relative;
+    border: 1px solid #F4F4F5;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    textarea{
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
 }
 .toolbar{
     display: flex;
     align-items: center;
     flex-direction: row-reverse;
     justify-content: flex-start;
-    position: absolute;
     background-color: #F2F4F7;
-    top: 10px;
-    left: 10px;
-    right: 10px;
     height: 40px;
     border-radius: 5px;
     padding: 0 10px;
@@ -54,26 +59,25 @@
     margin: auto  1em;
     border-radius: 4px;
 }
-
+.fontColor{
+        font-family: emoji;
+}
 .color-picker{
     display: flex;
     align-items: center;
-    span{
-        font-family: emoji;
-    }
-    input{
-        width: 18px;
-        height: 18px;
-        border: none;
-        border-radius: 50%;
-        overflow: hidden; 
-    }
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 5px;
+   
 }
 
 .text-style-edit{
     border-radius: 5px;
     padding: 5px;
     transition: 0.5s;
+    margin: 0 10px;
     cursor: pointer;
     &:hover{
         background-color: #AAAAAA;

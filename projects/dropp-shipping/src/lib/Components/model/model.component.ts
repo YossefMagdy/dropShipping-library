@@ -1,3 +1,4 @@
+import { NgStyle } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, input, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -8,11 +9,16 @@ import { TabMenuModule } from 'primeng/tabmenu';
 @Component({
   selector: 'app-model',
   standalone: true,
-  imports: [DialogModule,TabMenuModule,NgSelectModule,FormsModule],
+  imports: [DialogModule,TabMenuModule,NgSelectModule,FormsModule,NgStyle],
   templateUrl: './model.component.html',
   styleUrl: './model.component.scss'
 })
 export class ModelComponent implements OnInit  {
+  fontSize:number=14;
+  colorPicker:string='#000';
+  fontWeightBold:boolean=false;
+  fontStyleItalic:boolean=false;
+  textUnderLine:boolean=false;
 
   visible=model<boolean>(false)
   @Input() items!:MenuItem[];
