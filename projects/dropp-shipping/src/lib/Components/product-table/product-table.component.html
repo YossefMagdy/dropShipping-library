@@ -12,7 +12,7 @@
                 <tr class="border-bottom ">
                     @for (key of colData; track $index) {
                        @if (key.key==='productInfo') {
-                        <td class="text-center">
+                        <td class="text-center productInfo">
                             <div class="m-auto" style="width: 300px;">
                                 <div class="d-flex justify-content-between">
                                     <div class="productImg mx-2">
@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="text-end flex-grow-1">
                                         <h5>{{rowData[key.field].name}}</h5>
-                                        <span>{{rowData[key.field].category}}التصنيف</span>
+                                        <span>التصنيف: {{rowData[key.field].category}} </span>
                                     </div>
                                 </div>
                             </div>
@@ -29,8 +29,7 @@
                         @else if (key.key==='JustArray') {
                             <td class="text-center">
                                 @for (item of rowData[key.field]; track item;let i=$index) {
-                                    <span class="bg-dark-subtle p-1 rounded-1 mx-1">{{item}}</span>
-                                    <span *ngIf="rowData[key.field][i+1]">-</span>
+                                    <span class="cell-items mx-1">{{item}}</span>
                                 }
                             </td>
                         }

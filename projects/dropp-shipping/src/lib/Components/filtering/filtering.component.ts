@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -5,7 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 @Component({
   selector: 'app-filtering',
   standalone: true,
-  imports: [NgSelectModule,FormsModule],
+  imports: [NgSelectModule,FormsModule,NgIf],
   templateUrl: './filtering.component.html',
   styleUrls: ['./filtering.component.scss','../../../styles/styles.scss']
 })
