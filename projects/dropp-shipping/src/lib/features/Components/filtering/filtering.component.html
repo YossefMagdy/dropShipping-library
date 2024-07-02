@@ -7,7 +7,7 @@
     <!-- filteration -->
     <div  class="d-flex align-items-center m-2">
         <label for="site">الموقع</label>
-        <ng-select id="site" class="my-select my-select-sm"  placeholder="الموقع">
+        <ng-select id="site" class="my-select my-select-s"  placeholder="الموقع">
             @for (car of cars; track car.id) {
                 <ng-option [value]="car.id">{{car.name}}</ng-option>
             }

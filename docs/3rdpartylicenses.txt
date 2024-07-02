@@ -253,12 +253,12 @@ License: "MIT"
 
 
 --------------------------------------------------------------------------------
-Package: @ng-select/ng-select
+Package: primeng
 License: "MIT"
 
 
 --------------------------------------------------------------------------------
-Package: primeng
+Package: @ng-select/ng-select
 License: "MIT"
 
 

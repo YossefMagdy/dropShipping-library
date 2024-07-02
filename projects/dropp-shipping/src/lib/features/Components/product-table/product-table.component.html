@@ -1,22 +1,47 @@
-<p-table    [value]="data">
+<p-table  [value]="data"  [(selection)]="selectedProducts" selectionMode="multiple"  dataKey="id"         styleClass="p-datatable-gridlines" 
+>
     <ng-template pTemplate="header" >
       <tr>
+        @if (addCheckBox) {
+            <th class="text-center bg-transparent">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+        }
         @for (key of colData; track $index) {
-            <th  class="text-center bg-transparent" >{{key.header}} </th>
+            @if (key.headerType==='priceHeader') {
+                <th  class="text-center bg-transparent" >
+                <div class="d-flex justify-content-between align-items-center">
+                    {{key.header}}
+                    <p style="font-size: 12px;" class="my-0 mx-3 bg-danger px-2 py-1 text-white rounded-2">{{key.currency}}</p>
+                </div>
+                </th>
+            }
+            @else {
+                <th  class="text-center bg-transparent" >{{key.header}} </th>
+            }
+
         }   
       </tr>
     </ng-template>
     <ng-template pTemplate="body"  let-rowData >
       
             <!-- @for (record of gridData; track $index) { -->
-                <tr class="border-bottom ">
+                <tr class="border-bottom "  >
+
+                    @if (addCheckBox) {
+                        <td class="text-center">
+                            <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                          </td>
+                    }
+                 
+
                     @for (key of colData; track $index) {
                        @if (key.key==='productInfo') {
                         <td class="text-center productInfo">
                             <div class="m-auto" style="width: 300px;">
                                 <div class="d-flex justify-content-between">
                                     <div class="productImg mx-2">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvIaqtmQDaQkQS7KJN_M6TVCRjvaWJ8qJqw&s  " alt="">
+                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvIaqtmQDaQkQS7KJN_M6TVCRjvaWJ8qJqw&s" alt="">
                                     </div>
                                     <div class="text-end flex-grow-1">
                                         <h5>{{rowData[key.field].name}}</h5>
@@ -33,6 +58,22 @@
                                 }
                             </td>
                         }
+                        @else if (key.key==='img') {
+                            <td class="text-center img">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyvIaqtmQDaQkQS7KJN_M6TVCRjvaWJ8qJqw&s" alt="">
+                            </td>
+                        }
+                        @else if (key.key==='inputText') {
+                            <td class="text-center">
+                                <input type="text" class="form-control text-center" [ngModel]="rowData[key.field]">
+                            </td>
+                        }
+                        @else if (key.key==='inputNumber') {
+                            <td class="text-center">
+                                <input type="number" class="form-control  text-center" [ngModel]="rowData[key.field]">
+                            </td>
+                        }
+                       
                        @else {
 
                            <td class="text-center">{{ rowData[key.field] }}</td>  
@@ -47,3 +88,5 @@
             <!-- } -->
     </ng-template>
   </p-table>
+
+

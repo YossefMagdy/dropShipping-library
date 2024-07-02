@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { SiteSelectBoxComponent } from './Components/site-select-box/site-select-box.component';
-import { FilteringComponent } from './Components/filtering/filtering.component';
-import { ProductTableComponent } from './Components/product-table/product-table.component';
-import { colData } from './core/interface/colData';
 import { PaginatorModule } from 'primeng/paginator';
+import { FilteringComponent } from './features/Components/filtering/filtering.component';
+import { ProductTableComponent } from './features/Components/product-table/product-table.component';
+import { SiteSelectBoxComponent } from './features/Components/site-select-box/site-select-box.component';
+import { Component, OnInit } from '@angular/core';
+import { ModelComponent } from './features/Components/model/model.component';
+import { colData } from './features/core/interface/colData';
 import { MenuItem } from 'primeng/api';
-import { ModelComponent } from './Components/model/model.component';
 
 @Component({
   selector: 'app-droppShipping',
@@ -19,10 +19,10 @@ import { ModelComponent } from './Components/model/model.component';
 })
 export class DroppShippingComponent implements OnInit {
   products= [
-    { productName: {image:'',category:'ملايس',name:'تيشيرت بناتي برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
-    { productName: {image:'',category:'ملايس',name:'تيشيرت بناتي برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
-    { productName: {image:'',category:'ملايس',name:'تيشيرت بناتي برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
-    { productName: {image:'',category:'ملايس',name:'  برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
+    { id:2,productName: {image:'',category:'ملايس',name:'تيشيرت بناتي برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
+    { id:3,productName: {image:'',category:'ملايس',name:'تيشيرت بناتي برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
+    { id:4, productName: {image:'',category:'ملايس',name:'تيشيرت بناتي برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
+    { id:5,productName: {image:'',category:'ملايس',name:'  برسومات بارزة'}, brand: 'Adidas', size: ['xxl','xl'], color: ['red','green'],price:'9$-10$' },
   ];
   colData:colData[]=[]
   gridData:any;

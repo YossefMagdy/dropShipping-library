@@ -3,13 +3,14 @@ import { Component, EventEmitter, Input, Output,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { TableModule } from 'primeng/table';
 import { colData } from '../../core/interface/colData';
+import { FormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [TableModule,NgFor,NgIf],
+  imports: [TableModule,NgFor,NgIf,FormsModule],
   templateUrl: './product-table.component.html',
   styleUrl: './product-table.component.scss'
 })
@@ -18,8 +19,12 @@ export class ProductTableComponent {
   @Input() colData:colData[]=[]
   @Input() data: any[] = [];
   @Input() modelButton:boolean = false;
+  @Input() addCheckBox:boolean = false;
+  @Input() styledClass:string = '';
   @Output() productEdit=new EventEmitter()
 
+
+ selectedProducts!: any;
 
   constructor(private router: Router) {
   }

@@ -83,3 +83,56 @@
         background-color: #AAAAAA;
     }
 }
+
+
+//   -------------------المتغيرات
+
+
+.delivery-Info{
+    width: 100%;
+
+   
+
+    .search-filters{
+        width: 100%;
+        background-color: #DDDDDD;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding:  40px;
+        div{
+            width: calc(90% / 3);
+            margin: 10px 0;
+            label{
+                color:  black;
+            }
+        }
+    }
+    .product-info-container{
+        width: 100%;
+        background-color: #F4F4F5;
+        margin-top: 3px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 10px 20px;
+        p{
+            margin: 0;
+            color: black;
+        }
+        p:nth-of-type(2){
+            margin: 0 50px;
+        }
+    }
+}
+
+@media (max-width:720px){
+    .search-filters{
+       
+        div{
+            width: 100% !important;
+            
+        }
+    }
+}
