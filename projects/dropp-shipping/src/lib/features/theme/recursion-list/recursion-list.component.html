@@ -1,16 +1,46 @@
-    <ul class="list">
-        @for (category of categories; track $index) {
-                <li>
-                    {{category.categoryFirstName||category.categorySecondName}} 
-                    @if (category.categoryFirstList?.length||category.categorySecondList?.length) {
+@if (categoryObject.listNumber==='inital') {
+    <ul class="first-list list">
+            @for (category of categoryObject.list; track $index) {
+                <li (click)="handleSelectedCategory(category)">
+                    {{category.categoryFirstName}} 
+                   
+                       @if (category.categoryFirstList) {
                         <span > 
                             <svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                         </span>
-                    }
+                       }
                   
-                        <!-- <app-recursion-list [categories]="category.categoryFirstList||category.categorySecondList"></app-recursion-list> -->
-                    
                 </li>
             }
-    </ul>
-    
+        </ul>
+    } 
+@if (categoryObject.listNumber==='first') {
+    <ul class="second-list list">
+            @for (category of categoryObject.list; track $index) {
+                <li (click)="handleSelectedCategory(category)">
+                    {{category.categorySecondName}} 
+                   
+                        @if (category.categorySecondList) {
+                            <span > 
+                                <svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+                            </span>
+                           }
+                </li>
+            }
+        </ul>
+    } 
+@if (categoryObject.listNumber==='second') {
+    <ul class="third-list list">
+            @for (category of categoryObject.list; track $index) {
+                <li (click)="handleSelectedCategory(category)">
+                    {{category.categoryName}} 
+                   
+                       
+                </li>
+            }
+        </ul>
+    } 
+    @if (categorySelected) {
+
+        <app-recursion-list [categories]="categorySelected.list"></app-recursion-list>
+    }

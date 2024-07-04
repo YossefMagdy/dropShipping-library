@@ -13,12 +13,10 @@
     <label for="filter">التصنيف</label>
     <div class="category-list">
         <ng-select (click)="event()" id="site" class="my-select my-select-md CategoryBox" placeholder="الموقع">
-            @for (category of categories; track category.categoryFirstId) {
-                <ng-option [value]="category.categoryFirstId">{{category.categoryFirstName}}</ng-option>
-            }
+           
         </ng-select>
        
-            <!-- <app-recursion-list *ngIf="categories.length" [categories]="categories"></app-recursion-list> -->
+            <app-recursion-list *ngIf="categories.length" [categories]="categories"></app-recursion-list>
         
     </div>
 </div>

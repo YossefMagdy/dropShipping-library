@@ -29,7 +29,7 @@ export class SiteSelectBoxComponent implements OnInit{
   getCategory(){
     this.categoriesService.getCategories().subscribe((category)=>{
       this.categories=category.data
-      console.log(this.categories)
+      
     })
   }
 
