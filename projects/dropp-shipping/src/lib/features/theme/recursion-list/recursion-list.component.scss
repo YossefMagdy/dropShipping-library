@@ -86,3 +86,28 @@
         flex: none;
     }
 }
+
+@media (max-width:1430px){
+  .second-list{
+    left: -45% !important;
+
+  }
+  .third-list{
+    left: -75%;
+
+  }
+@media (max-width:885px){
+  .list{
+    top: 80px;
+    width: 200px;
+    right: -40px;
+  }
+  .second-list{
+    right: -8%;
+  }
+  .third-list{
+    right: 5%;
+  }
+
+}
+}
