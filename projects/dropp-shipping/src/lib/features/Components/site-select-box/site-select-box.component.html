@@ -16,7 +16,9 @@
            
         </ng-select>
        
-            <app-recursion-list *ngIf="categories.length" [categories]="categories"></app-recursion-list>
+            <ng-template [ngIf]="openCategory">
+                <app-recursion-list *ngIf="categories.length" [categories]="categories" (chosenCategory)="onCategoryChose($event)"></app-recursion-list>
+            </ng-template>
         
     </div>
 </div>

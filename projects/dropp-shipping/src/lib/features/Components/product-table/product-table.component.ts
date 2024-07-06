@@ -2,8 +2,8 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { TableModule } from 'primeng/table';
-import { colData } from '../../core/interface/colData';
 import { FormsModule } from '@angular/forms';
+import { colData } from '../../../domain/entites/model/colData.model';
 
 
 

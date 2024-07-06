@@ -2,7 +2,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CategoriesService } from '../../../domain/services/Categories/categories.service';
-import { CategoryResponse } from '../../../domain/entites/getCategories.model';
+import { CategoryResponse } from '../../../domain/entites/model/getCategories.model';
 import { RecursionListComponent } from '../../theme/recursion-list/recursion-list.component';
 import { NgIf } from '@angular/common';
 
@@ -23,6 +23,7 @@ export class SiteSelectBoxComponent implements OnInit{
       { id: 3, name: 'Opel' },
       { id: 4, name: 'Audi' },
   ];
+  openCategory:boolean=false
   ngOnInit(){
     this.getCategory()
   }
@@ -32,8 +33,12 @@ export class SiteSelectBoxComponent implements OnInit{
       
     })
   }
-
   event(){
-    console.log('click')
+    this.openCategory=!this.openCategory
   }
+  onCategoryChose(category:CategoryResponse){
+    this.openCategory=false;
+    console.log(category)
+  }
+
 }

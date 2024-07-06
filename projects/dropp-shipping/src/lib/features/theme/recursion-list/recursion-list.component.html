@@ -42,5 +42,10 @@
     } 
     @if (categorySelected) {
 
-        <app-recursion-list [categories]="categorySelected.list"></app-recursion-list>
+        <app-recursion-list [categories]="categorySelected.list" (chosenCategory)="sendCategory($event)"></app-recursion-list>
     }
+
+
+
+  
+

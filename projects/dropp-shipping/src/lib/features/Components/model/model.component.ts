@@ -6,7 +6,8 @@ import { MenuItem } from 'primeng/api';
 import { DialogModule } from 'primeng/dialog';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { ProductTableComponent } from '../product-table/product-table.component';
-import { colData } from '../../core/interface/colData';
+import { colData } from '../../../domain/entites/model/colData.model';
+import { colDataViewModel } from '../../../domain/entites/viewModel/colData.viewModel';
 
 @Component({
   selector: 'app-model',
@@ -22,7 +23,17 @@ export class ModelComponent implements OnInit  {
   fontStyleItalic:boolean=false;
   textUnderLine:boolean=false;
   
-  colData:colData[]=[]
+  colData:colData[]=[
+    {field:'photo',header:'الصورة',key:'img'},
+    {field:'color',header:'اللون',key:'inputText'},
+    {field:'size',header:'المقاس',key:'inputText'},
+    {field:'CJPRICE',header:'CJ PRICE',key:'inputNumber'},
+    {field:'delivryCost',header:'مصاريف الشحن',key:'inputNumber'},
+    {field:'dropShippingCost',header:'اجمالي مصاريف الدروب شبينج',key:'inputNumber'},
+    {field:'price',header:'السعر',key:'inputNumber',headerType:'priceHeader',currency:'EGP'},
+    ]
+    colDataViewModel!:colDataViewModel
+
   gridData:any;
 
   visible=model<boolean>(false)
@@ -40,22 +51,12 @@ export class ModelComponent implements OnInit  {
     if(this.items?.length){
       this.activeItem=this.items[1]
     }
-    this.setColData()
+    this.colDataViewModel=new  colDataViewModel(this.colData)
+
     this.setGridData()
   }
 
-  setColData(){
-    this.colData=[
-      {field:'photo',header:'الصورة',key:'img'},
-      {field:'color',header:'اللون',key:'inputText'},
-      {field:'size',header:'المقاس',key:'inputText'},
-      {field:'CJPRICE',header:'CJ PRICE',key:'inputNumber'},
-      {field:'delivryCost',header:'مصاريف الشحن',key:'inputNumber'},
-      {field:'dropShippingCost',header:'اجمالي مصاريف الدروب شبينج',key:'inputNumber'},
-      {field:'price',header:'السعر',key:'inputNumber',headerType:'priceHeader',currency:'EGP'},
 
-      ]
-  }
   setGridData(){
     this.gridData=this.products.map((product)=>{
       return {
@@ -73,7 +74,6 @@ export class ModelComponent implements OnInit  {
 }
 
   onTabChange(tab:MenuItem){
-    console.log(tab)
     this.activeItem=tab
   }
   // handle model Hide event 

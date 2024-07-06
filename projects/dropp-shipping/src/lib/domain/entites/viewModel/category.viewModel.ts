@@ -1,4 +1,4 @@
-import { CategoryResponse } from "../../entites/getCategories.model";
+import { CategoryResponse } from "../model/getCategories.model";
 
 
 export class CategoryViewModel{
@@ -11,7 +11,6 @@ export class CategoryViewModel{
         listNumber:string,
         list:CategoryResponse[]
       }{
-        console.log(this.category)
         if(this.category[0].hasOwnProperty('categoryFirstList')){
             return {
                 listNumber:'inital',

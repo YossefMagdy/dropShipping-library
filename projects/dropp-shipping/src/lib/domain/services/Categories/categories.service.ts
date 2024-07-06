@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Enviroment } from '../../../features/core/enviroment/enviroment';
-import { CategoryResponse } from '../../entites/getCategories.model';
-import { baseResponse } from '../../entites/apiResponse.model';
+import { Enviroment } from '../../entites/enviroment/enviroment';
+import { CategoryResponse } from '../../entites/model/getCategories.model';
+import { baseResponse } from '../../entites/model/apiResponse.model';
 
 @Injectable({
   providedIn: 'root'

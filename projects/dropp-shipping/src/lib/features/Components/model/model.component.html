@@ -221,7 +221,7 @@
 
     <!------------------------ product Table -------------------->
     <div class="mt-3">
-        <app-table class="productEditTable" [addCheckBox]="true" [data]="products" [gridData]="gridData" [colData]="colData"></app-table>
+        <app-table class="productEditTable" [addCheckBox]="true" [data]="products" [gridData]="gridData" [colData]="colDataViewModel.getColData()"></app-table>
 
         <button style="width: 222px;height: 49px;" class="btn btn-primary d-block m-auto mt-5">تطبيق</button>
 

@@ -1,49 +1,64 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import { CategoryResponse } from '../../../domain/entites/getCategories.model';
-import { CategoryViewModel } from '../../../domain/services/Categories/category.viewModel';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+} from '@angular/core';
+import { CategoryResponse } from '../../../domain/entites/model/getCategories.model';
+import { CategoryViewModel } from '../../../domain/entites/viewModel/category.viewModel';
+import { ScrollerModule } from 'primeng/scroller';
 
-  interface selectedCategroy{
-    listNumber:string,
-    list:CategoryResponse[]
-  }
+interface selectedCategroy {
+  listNumber: string;
+  list: CategoryResponse[];
+}
 
 @Component({
   selector: 'app-recursion-list',
   standalone: true,
-  imports: [],
+  imports: [ScrollerModule],
   templateUrl: './recursion-list.component.html',
-  styleUrl: './recursion-list.component.scss'
+  styleUrl: './recursion-list.component.scss',
 })
-export class RecursionListComponent implements OnChanges{
-@Input() categories:CategoryResponse[]=[]
-categoryViewModel!:CategoryViewModel;
-categoryObject!:selectedCategroy
-categorySelected!:selectedCategroy
+export class RecursionListComponent implements OnChanges {
+  @Input() categories: CategoryResponse[] = [];
+  @Output() chosenCategory = new EventEmitter<CategoryResponse>();
+  categoryViewModel!: CategoryViewModel;
+  categoryObject!: selectedCategroy;
+  categorySelected!: selectedCategroy;
 
-
-ngOnChanges(){
-  if(this.categories.length){
-    console.log('second')
-    this.categoryViewModel=new CategoryViewModel(this.categories)
-    this.categoryObject=this.categoryViewModel.getCategoryData()
-    console.log(this.categoryObject)
-  } 
-}
-  handleSelectedCategory(category:any){
-  console.log(category)
-  if(category.hasOwnProperty('categoryFirstList')){
-    this.categorySelected={
-      list:category.categoryFirstList,
-      listNumber:'inital'
+  ngOnChanges() {
+    if (this.categories.length) {
+      this.categoryViewModel = new CategoryViewModel(this.categories);
+      this.categoryObject = this.categoryViewModel.getCategoryData();
     }
-  }else if(category.hasOwnProperty('categorySecondList')){
-    this.categorySelected={
-         list:category.categorySecondList,
-        listNumber:'first' 
-    }
-  }else {
-    console.log(category)
   }
-  
+  handleSelectedCategory(category: any) {
+    if (category.hasOwnProperty('categoryFirstList')) {
+      if (category.categoryFirstList.length) {
+        this.categorySelected = {
+          list: category.categoryFirstList ,
+          listNumber: 'inital',
+        };
+        return;
+      }
+      this.sendCategory(category);
+    } else if (category.hasOwnProperty('categorySecondList')) {
+      if (category.categorySecondList.length) {
+        this.categorySelected = {
+          list: category.categorySecondList,
+          listNumber: 'first',
+        };
+        return;
+      }
+      this.sendCategory(category);
+    }
+    this.sendCategory(category);
+  }
+ 
+
+  sendCategory(category: CategoryResponse) {
+    this.chosenCategory.emit(category);
   }
 }

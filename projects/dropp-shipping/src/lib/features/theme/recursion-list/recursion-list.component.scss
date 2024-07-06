@@ -8,6 +8,7 @@
     border-radius: 8px;
     max-height: 300px;
     overflow-y: scroll;
+    top: 54px;
     li{
         padding: 10px 15px;
         white-space: none;
@@ -79,3 +80,9 @@
     background: #0E233D !important;
     border-radius: 10px;
   }
+
+  :host ::ng-deep {
+    .p-scroller-viewport {
+        flex: none;
+    }
+}
